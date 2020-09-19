@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>index</title>
+
+        <style>
+            .modal {
+              display: none; 
+              position: fixed;
+              z-index: 1; 
+              padding-top: 100px;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              overflow: auto;
+              background-color: rgb(0,0,0);
+              background-color: rgba(0,0,0,0.4);
+            }
+
+            .modal-content {
+              background-color: #fefefe;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 50%;
+            }
+            .close {
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            .form-container {
+              width: 90%;
+              padding: 10px;
+              background-color: white;
+            }
+
+            .form-container input[type=text]{
+              width: 100%;
+              padding: 5px;
+              margin: 5px 0 22px 0;
+              background: #f1f1f1;
+            }
+
+            </style>
+
+            <script src="main.js"></script>
+
+    </head>
+    <body>
+        <div>
+            <h2>Create a blank array and later on create a add bus functionality bus object contains {name, source,destination, number, passenger capacity}
+            </h2>
+            <h4>
+                <ul>
+                    <li>A. A form to add new bus</li>
+                    <li>B. Display data in table format</li>
+                    <li>C. Search by source and destination</li>
+                    <li>D. Data should be stored permanently in localstorage</li>
+                </ul>
+            </h4>
+        </div>
+        <div style="margin: auto;width: 80%">
+             <button onclick="refreshTable('table')" style="margin: 5px;">Refresh Table</button><br>
+             <button onclick="popupAddData()" style="margin: 5px;">Add</button>
+                <div id="modal" class="modal">
+
+                  <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <form onsubmit="" class="form-container" name="form">
+                        <h1>Bus Details</h1>
+                        <label for="name"><b>Name</b></label>
+                        <input type="text" placeholder="Enter Bus Name" id="name" required>
+                        <label for="source"><b>Source</b></label>
+                        <input type="text" placeholder="Enter Source" id="source" required>
+                        <label for="destination"><b>Destination</b></label>
+                        <input type="text" placeholder="Enter Destination" id="destination" required>
+                        <label for="number"><b>Number</b></label>
+                        <input type="text" placeholder="Enter Number" id="number" required>
+                        <label for="capacity"><b>Passenger Capacity</b></label>
+                        <input type="number" placeholder="Enter Passenger Capacity" id="capacity" required>
+                        <input type="submit" onclick="addBusData(event)" style="padding: 5px;font-size: 20px;background: #f1f1f1;" value="Add">
+
+                  </form>
+                  </div>
+                </div> 
+
+            <input type="text" id="search_nm" onkeyup="searchName()" placeholder="Search for Names.." title="Type in a name"/>
+            <input type="text" id="search_city" onkeyup="searchCity()" placeholder="Search for Cities.." title="Type in a city"/>
+            <table id="table" border="1" style="width: 100%">
+              <thead>
+                <tr class="header">
+                  <th style="width:20%;">Name</th>
+                  <th style="width:20%;">Source</th>
+                  <th style="width:20%;">Destination</th>
+                  <th style="width:20%;">Number</th>
+                  <th style="width:20%;">Capacity</th>
+
+                </tr>
+              </thead>
+              <tbody class="tdata" id="tdata"></tbody>
+            </table>
+            <!-- <button onclick="deleteAll()" style="margin: 5px;">Delete All</button> -->
+
+
+
+        </div>
+    </body>
+</html>

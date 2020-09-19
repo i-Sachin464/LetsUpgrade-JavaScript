@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>index</title>
+    </head>
+    <body>
+        <script src="main.js"></script>
+        <div>
+            <h2>Create a array containing five objects with properties { name, age , city , salary }</h2>
+            <h4>
+                <ul>
+                    <li>A. Display all the objects in a table</li>
+                    <li>B. Create a search functionality for name and city</li>
+                    <li>C. Delete button to delete records</li>
+                    <li>D. Data is not permanent</li>
+                </ul>
+            </h4>
+        </div>
+        <div style="margin: auto;width: 50%">
+             <button onclick="addRow('table')" style="margin: 5px;">Refresh Table</button>
+            <input type="text" id="search_nm" onkeyup="searchName()" placeholder="Search for Names.." title="Type in a name"/>
+            <input type="text" id="search_city" onkeyup="searchCity()" placeholder="Search for Cities.." title="Type in a city"/>
+            <table id="table" border="1" style="width: 100%">
+              <tr class="header">
+                <th style="width:25%;">Name</th>
+                <th style="width:25%;">Age</th>
+                <th style="width:25%;">City</th>
+                <th style="width:25%;">Salary</th>
+              </tr>
+            </table>
+
+            <button onclick="deleteRow('table')" style="margin: 5px;">Delete First Row</button>
+            <button onclick="deleteAll('table')" style="margin: 5px;">Delete All</button>
+
+
+
+        </div>
+    </body>
+</html>
